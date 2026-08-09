@@ -92,7 +92,7 @@ class LocalFileServer(port: Int, private val allowedDir: File) : NanoHTTPD(port)
     ],
     techStack: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "REST APIs"],
     codeUrl: "https://github.com/NandKishor-10/creatorsAi",
-    liveUrl: "https://www.creatorsai.live/",
+    liveUrl: "https://creators-ai-ijjq.vercel.app/",
     featured: true,
     metrics: "Automates 15–60s clip generation & video metadata optimization",
     imagePlaceholder: "linear-gradient(135deg, #475569 0%, #334155 100%)",
