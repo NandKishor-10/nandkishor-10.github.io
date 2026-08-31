@@ -122,43 +122,100 @@ export const ProjectsSection: React.FC = () => {
                   <Box
                     sx={{
                       height: 170,
-                      background: project.imagePlaceholder || 'linear-gradient(135deg, #334155 0%, #1e293b 100%)',
-                      p: 2.5,
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
                       position: 'relative',
+                      overflow: 'hidden',
+                      background:
+                        'linear-gradient(135deg, #334155 0%, #1e293b 100%)',
                     }}
                   >
-                    <Stack direction="row" sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
-                      <Chip
-                        label={project.category}
-                        size="small"
+                    {project.imagePlaceholder && (
+                      <Box
+                        component="img"
+                        src={project.imagePlaceholder}
+                        alt={`${project.title} project preview`}
                         sx={{
-                          bgcolor: 'rgba(255, 255, 255, 0.25)',
-                          color: '#fff',
-                          backdropFilter: 'blur(8px)',
-                          fontWeight: 700,
+                          position: 'absolute',
+                          inset: 0,
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
                         }}
                       />
-                      {project.featured && (
+                    ) }
+
+                    {/* Dark overlay for better text readability */}
+                    <Box
+                      sx={{
+                        position: 'absolute',
+                        inset: 0,
+                        background:
+                          'linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.65))',
+                      }}
+                    />
+
+                    {/* Header content */}
+                    <Box
+                      sx={{
+                        position: 'relative',
+                        zIndex: 1,
+                        height: '100%',
+                        p: 2.5,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      <Stack
+                        direction="row"
+                        sx={{
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                        }}
+                      >
                         <Chip
-                          icon={<AiIcon sx={{ color: '#e2e8f0 !important', fontSize: '0.9rem !important' }} />}
-                          label="Featured"
+                          label={project.category}
                           size="small"
                           sx={{
-                            bgcolor: 'rgba(0, 0, 0, 0.4)',
+                            bgcolor: 'rgba(255, 255, 255, 0.25)',
                             color: '#fff',
                             backdropFilter: 'blur(8px)',
-                            fontWeight: 600,
+                            fontWeight: 700,
                           }}
                         />
-                      )}
-                    </Stack>
 
-                    <Typography variant="h5" color="#fff" sx={{ fontWeight: 800, textShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>
-                      {project.title}
-                    </Typography>
+                        {project.featured && (
+                          <Chip
+                            icon={
+                              <AiIcon
+                                sx={{
+                                  color: '#e2e8f0 !important',
+                                  fontSize: '0.9rem !important',
+                                }}
+                              />
+                            }
+                            label="Featured"
+                            size="small"
+                            sx={{
+                              bgcolor: 'rgba(0, 0, 0, 0.4)',
+                              color: '#fff',
+                              backdropFilter: 'blur(8px)',
+                              fontWeight: 600,
+                            }}
+                          />
+                        )}
+                      </Stack>
+
+                      <Typography
+                        variant="h5"
+                        color="#fff"
+                        sx={{
+                          fontWeight: 800,
+                          textShadow: '0 2px 8px rgba(0,0,0,0.5)',
+                        }}
+                      >
+                        {project.title}
+                      </Typography>
+                    </Box>
                   </Box>
 
                   {/* Content Body */}
