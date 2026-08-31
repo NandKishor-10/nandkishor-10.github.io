@@ -1,4 +1,7 @@
 import { ProfileInfo, Project, SkillCategory, EducationItem, CertificationItem } from '../types';
+import CreatorsAIImg from './creatorsAI.png';
+import LoveEditImg from './LoveEdit.png';
+import PixxelAIImg from './PixxelAI.png';
 
 export const profileData: ProfileInfo = {
   name: "NAND KISHOR GORAIN",
@@ -34,7 +37,7 @@ export const projectsData: Project[] = [
     codeUrl: "https://github.com/NandKishor-10/QuizApp",
     featured: true,
     metrics: "MVVM + Ktor Backend + Koin DI & DataStore",
-    imagePlaceholder: "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+    imagePlaceholder: null,
     demoSnippet: `// Jetpack Compose MVVM ViewState Snippet
 @Composable
 function QuizScreen(viewModel: QuizViewModel = koinViewModel()) {
@@ -64,7 +67,7 @@ function QuizScreen(viewModel: QuizViewModel = koinViewModel()) {
     codeUrl: "https://github.com/NandKishor-10/file-server",
     featured: true,
     metrics: "In-App HTTP Server + Secure Directory Access",
-    imagePlaceholder: "linear-gradient(135deg, #334155 0%, #1e293b 100%)",
+    imagePlaceholder: null,
     demoSnippet: `// NanoHTTPD Embedded HTTP Server Router Snippet
 class LocalFileServer(port: Int, private val allowedDir: File) : NanoHTTPD(port) {
     override fun serve(session: IHTTPSession): Response {
@@ -95,7 +98,7 @@ class LocalFileServer(port: Int, private val allowedDir: File) : NanoHTTPD(port)
     liveUrl: "https://creators-ai-ijjq.vercel.app/",
     featured: true,
     metrics: "Automates 15–60s clip generation & video metadata optimization",
-    imagePlaceholder: "linear-gradient(135deg, #475569 0%, #334155 100%)",
+    imagePlaceholder: CreatorsAIImg,
     demoSnippet: `// Sample clip extraction & caption synchronization snippet
 export async function generateClipsFromVideo(videoUrl: string, options: ClipOptions) {
   const highlights = await aiEngine.analyzeTimestampMoments(videoUrl);
@@ -123,7 +126,7 @@ export async function generateClipsFromVideo(videoUrl: string, options: ClipOpti
     liveUrl: "http://pixxelai.live/",
     featured: true,
     metrics: "Real-time canvas filter rendering + background removal",
-    imagePlaceholder: "linear-gradient(135deg, #64748b 0%, #475569 100%)",
+    imagePlaceholder: PixxelAIImg,
     demoSnippet: `// HTML5 Canvas Filter Transformation Engine
 export function applyCanvasFilter(ctx: CanvasRenderingContext2D, width: number, height: number, filterType: string) {
   const imageData = ctx.getImageData(0, 0, width, height);
@@ -153,7 +156,7 @@ export function applyCanvasFilter(ctx: CanvasRenderingContext2D, width: number, 
     liveUrl: "https://www.loveedit.art/",
     featured: true,
     metrics: "Live at www.loveedit.art — Generative Fill & Pixel-Accurate AI Upscaling",
-    imagePlaceholder: "linear-gradient(135deg, #1e293b 0%, #334155 100%)",
+    imagePlaceholder: LoveEditImg,
     demoSnippet: `// Generative Fill Pipeline
 export async function executeGenerativeFill(imageBlob: Blob, maskArea: MaskCoordinates, prompt: string) {
   const payload = {
