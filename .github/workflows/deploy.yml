@@ -36,6 +36,14 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          VITE_PROFILE_EMAIL: ${{ vars.VITE_PROFILE_EMAIL }}
+          VITE_PROFILE_LINKEDIN: ${{ vars.VITE_PROFILE_LINKEDIN }}
+          VITE_PROFILE_GITHUHB: ${{ vars.VITE_PROFILE_GITHUHB }}
+          VITE_PROFILE_X: ${{ vars.VITE_PROFILE_X }}
+          VITE_PROFILE_INSTAGRAM: ${{ vars.VITE_PROFILE_INSTAGRAM }}
+          VITE_CERTIFICATE_UNIFIEDMENTOR: ${{ vars.VITE_CERTIFICATE_UNIFIEDMENTOR }}
+          VITE_CERTIFICATE_GFGDSA: ${{ vars.VITE_CERTIFICATE_GFGDSA }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
