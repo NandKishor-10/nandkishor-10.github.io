@@ -3,15 +3,24 @@ import CreatorsAIImg from './creatorsAI.png';
 import LoveEditImg from './LoveEdit.png';
 import PixxelAIImg from './PixxelAI.png';
 
+const email = import.meta.env.VITE_PROFILE_EMAIL;
+const linkedin = import.meta.env.VITE_PROFILE_LINKEDIN;
+const github = import.meta.env.VITE_PROFILE_GITHUB;
+const x = import.meta.env.VITE_PROFILE_X;
+const instagram = import.meta.env.VITE_PROFILE_INSTAGRAM;
+
+const cert_unifiedMentor= import.meta.env.VITE_CERTIFICATE_UNIFIEDMENTOR
+const cert_gfgDSA= import.meta.env.VITE_CERTIFICATE_GFGDSA
+
 export const profileData: ProfileInfo = {
   name: "NAND KISHOR GORAIN",
   title: "Android & Full-Stack Web Developer",
   location: "Jharkhand, India",
-  email: "nandkishorgorain@gmail.com",
-  linkedin: "https://www.linkedin.com/in/nandkishor10",
-  github: "https://github.com/NandKishor-10",
-  x: "https://x.com/NandKishor_10",
-  instagram: "https://www.instagram.com/nandkishor_1o",
+  email,
+  linkedin,
+  github,
+  x,
+  instagram,
   summary: "Android Developer with a BCA in Computer Applications, skilled in Kotlin and Jetpack Compose, with hands-on experience building and shipping mobile apps using MVVM architecture, Koin/Hilt dependency injection, and REST-backed data layers. Also comfortable working across the stack, having independently built and deployed full-stack web applications with React, Next.js, and TypeScript. Strong foundation in software fundamentals, API integration, and cross-platform development.",
   stats: [
     { label: "Mobile & Web Apps", value: "5+", sublabel: "Built & Deployed" },
@@ -263,7 +272,7 @@ export const certificationsData: CertificationItem[] = [
     duration: "4-Week Internship",
     details: "Completed 4-week internship in Frontend Development, working with modern web UI components, responsive layouts, and API integrations.",
     badgeColor: "#1e293b",
-    certificateUrl: "https://drive.google.com/file/d/1pw3eMZwB53UETgs88jNu_ZXkD2skpYqL/view"
+    certificateUrl: cert_unifiedMentor
   },
   {
     id: "cert-2",
@@ -272,6 +281,6 @@ export const certificationsData: CertificationItem[] = [
     duration: "160 Consecutive Days",
     details: "Successfully completed the 160-day Data Structures & Algorithms challenge on GeeksforGeeks, solving problem sets in arrays, trees, graphs, and dynamic programming.",
     badgeColor: "#334155",
-    certificateUrl: "https://media.geeksforgeeks.org/courses/certificates/8ef616e80fd5ee477a57ae4c765a7323.pdf"
+    certificateUrl: cert_gfgDSA
   }
 ];

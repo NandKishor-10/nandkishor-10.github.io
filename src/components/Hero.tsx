@@ -1,362 +1,145 @@
-import React from 'react';
-import {
-  Box,
-  Container,
-  Typography,
-  Button,
-  Grid,
-  Card,
-  Chip,
-  Avatar,
-  Stack,
-  useTheme,
-  Paper,
-} from '@mui/material';
-import {
-  Email as EmailIcon,
-  LinkedIn as LinkedInIcon,
-  GitHub as GitHubIcon,
-  LocationOn as LocationIcon,
-  Launch as LaunchIcon,
-  CheckCircle as CheckIcon,
-  Download as DownloadIcon,
-  Terminal as TerminalIcon,
-  ArrowForward as ArrowIcon,
-} from '@mui/icons-material';
-import { motion } from 'motion/react';
-import { profileData } from '../data/portfolioData';
+import type { CSSProperties } from 'react';
+import { ArrowUpRight, DotGrid, Roll } from './ui';
 
 interface HeroProps {
   onOpenResume: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
-  const theme = useTheme();
+const bar = 'block rounded-full';
 
+export function Hero({ onOpenResume }: HeroProps) {
   return (
-    <Box
-      id="summary"
-      sx={{
-        pt: { xs: 6, md: 10 },
-        pb: { xs: 8, md: 12 },
-        position: 'relative',
-        overflow: 'hidden',
-        background: theme.palette.mode === 'dark'
-          ? 'radial-gradient(circle at 15% 15%, rgba(148, 163, 184, 0.08) 0%, transparent 45%), radial-gradient(circle at 85% 85%, rgba(100, 116, 139, 0.06) 0%, transparent 45%)'
-          : 'radial-gradient(circle at 15% 15%, rgba(100, 116, 139, 0.04) 0%, transparent 45%), radial-gradient(circle at 85% 85%, rgba(148, 163, 184, 0.04) 0%, transparent 45%)',
-      }}
-    >
-      <Container maxWidth="lg">
-        <Grid container spacing={4} sx={{ alignItems: 'center' }}>
-          {/* Main Info Header */}
-          <Grid size={{ xs: 12, md: 7 }}>
-            <Box
-              component={motion.div}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+    <section id="top" className="px-5 pt-5">
+      <div className={`relative mx-auto max-w-330 overflow-hidden rounded-[40px] text-[#f5f5f2] ${DotGrid}`}>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(460px,100%),1fr))] items-center gap-6 p-[clamp(32px,6vw,88px)]">
+          <div className="relative z-2 flex flex-col gap-8">
+            <span
+              className="in animate-in-up inline-flex self-start items-center gap-2.5 rounded-full border border-[#33363e] bg-ink-2 py-2 pr-4.5 pl-3.5 font-mono text-[13px] text-[#d4d6db] opacity-0"
+              style={{ animationDelay: '.05s' }}
             >
-              <Stack direction="row" spacing={1} sx={{ mb: 2.5, alignItems: 'center', flexWrap: 'wrap', gap: 1 }}>
-                <Chip
-                  icon={<CheckIcon sx={{ fontSize: '0.9rem !important', color: 'inherit' }} />}
-                  label="Available for Frontend & Web Roles"
-                  size="small"
-                  sx={{
-                    fontWeight: 600,
-                    px: 1,
-                    py: 0.5,
-                    bgcolor: theme.palette.mode === 'dark' ? 'rgba(226, 232, 240, 0.12)' : 'rgba(30, 41, 59, 0.08)',
-                    color: 'text.primary',
-                    border: '1px solid',
-                    borderColor: 'divider',
-                  }}
-                />
-                <Chip
-                  icon={<LocationIcon sx={{ fontSize: '0.9rem !important' }} />}
-                  label={profileData.location}
-                  variant="outlined"
-                  size="small"
-                  sx={{
-                    fontWeight: 500,
-                    borderColor: 'divider',
-                    color: 'text.secondary',
-                  }}
-                />
-              </Stack>
+              <span className="pulse animate-pulse-soft block size-2 rounded-full bg-accent" />
+              Available for opportunities
+            </span>
 
-              <Typography
-                variant="h1"
-                sx={{
-                  fontWeight: 800,
-                  fontSize: { xs: '2.2rem', sm: '3.1rem', md: '3.75rem' },
-                  letterSpacing: '-0.03em',
-                  lineHeight: 1.15,
-                  mb: 2,
-                  color: 'text.primary',
-                  wordBreak: 'break-word',
-                }}
-              >
-                {profileData.name}
-              </Typography>
+            <h1 className="m-0 font-serif text-[clamp(54px,8.4vw,128px)] leading-[0.92] font-normal tracking-tight text-balance">
+              <span className="ln"><span>Android &amp;</span></span>
+              <span className="ln l2">
+                <span>
+                  <em className="relative inline-block text-accent">
+                    Full-stack
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 300 18"
+                      preserveAspectRatio="none"
+                      className="absolute bottom-[0.02em] left-0 h-[0.12em] w-full overflow-visible"
+                    >
+                      <path
+                        className="scribble animate-draw"
+                        d="M3 12 C60 2 120 16 180 7 S270 4 297 9"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="5"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </em>{' '}
+                  web.
+                </span>
+              </span>
+            </h1>
 
-              <Typography
-                variant="h4"
-                sx={{
-                  fontWeight: 600,
-                  mb: 3,
-                  fontSize: { xs: '1.1rem', sm: '1.25rem', md: '1.45rem' },
-                  color: 'primary.main',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 1.25,
-                  flexWrap: 'wrap',
-                }}
-              >
-                <span>{profileData.title}</span>
-                <Box
-                  component="span"
-                  sx={{
-                    display: { xs: 'none', sm: 'inline-block' },
-                    width: 6,
-                    height: 6,
-                    borderRadius: '50%',
-                    bgcolor: 'secondary.main',
-                  }}
-                />
-                <Typography component="span" variant="subtitle1" color="text.secondary" sx={{ fontWeight: 500, fontSize: { xs: '0.875rem', sm: '1rem' } }}>
-                  Kotlin • Jetpack Compose • React • Next.js • TypeScript
-                </Typography>
-              </Typography>
-
-              {/* Summary Card */}
-              <Paper
-                elevation={0}
-                sx={{
-                  p: { xs: 2.25, sm: 3 },
-                  mb: 3.5,
-                  borderRadius: 3,
-                  bgcolor: theme.palette.mode === 'dark' ? 'rgba(17, 24, 39, 0.6)' : 'rgba(255, 255, 255, 0.8)',
-                  backdropFilter: 'blur(12px)',
-                  border: 1,
-                  borderColor: 'divider',
-                }}
-              >
-                <Typography variant="body1" color="text.secondary" sx={{ fontSize: { xs: '0.95rem', sm: '1.025rem' }, lineHeight: 1.7 }}>
-                  {profileData.summary}
-                </Typography>
-              </Paper>
-
-              {/* Quick Social & Contact Badges */}
-              <Stack direction="row" spacing={1.5} sx={{ mb: 4, flexWrap: 'wrap', gap: 1.25 }}>
-                <Button
-                  variant="outlined"
-                  size="small"
-                  startIcon={<EmailIcon fontSize="small" />}
-                  href={`mailto:${profileData.email}`}
-                  sx={{ borderRadius: 2, color: 'text.primary', minHeight: 40, px: 2, fontSize: '0.825rem' }}
-                >
-                  {profileData.email}
-                </Button>
-                <Button
-                  variant="outlined"
-                  size="small"
-                  startIcon={<LinkedInIcon fontSize="small" />}
-                  href={profileData.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  endIcon={<LaunchIcon sx={{ fontSize: '0.8rem !important' }} />}
-                  sx={{ borderRadius: 2, color: 'text.primary', minHeight: 40, px: 2, fontSize: '0.825rem' }}
-                >
-                  LinkedIn
-                </Button>
-                <Button
-                  variant="outlined"
-                  size="small"
-                  startIcon={<GitHubIcon fontSize="small" />}
-                  href={profileData.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  endIcon={<LaunchIcon sx={{ fontSize: '0.8rem !important' }} />}
-                  sx={{ borderRadius: 2, color: 'text.primary', minHeight: 40, px: 2, fontSize: '0.825rem' }}
-                >
-                  GitHub
-                </Button>
-              </Stack>
-
-              {/* Action Buttons */}
-              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-                <Button
-                  component={motion.a}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  endIcon={<ArrowIcon />}
-                  href="#projects"
-                  sx={{
-                    px: 3.5,
-                    py: 1.4,
-                    fontSize: '0.95rem',
-                    borderRadius: 2.5,
-                    minHeight: 48,
-                    width: { xs: '100%', sm: 'auto' },
-                  }}
-                >
-                  Explore Featured Projects
-                </Button>
-                <Button
-                  component={motion.button}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  variant="outlined"
-                  color="primary"
-                  size="large"
-                  startIcon={<DownloadIcon />}
-                  onClick={onOpenResume}
-                  sx={{
-                    px: 3,
-                    py: 1.4,
-                    fontSize: '0.95rem',
-                    borderRadius: 2.5,
-                    minHeight: 48,
-                    width: { xs: '100%', sm: 'auto' },
-                  }}
-                >
-                  View Resume
-                </Button>
-              </Stack>
-            </Box>
-          </Grid>
-
-          {/* Right Stats & Identity Card */}
-          <Grid size={{ xs: 12, md: 5 }}>
-            <Box
-              component={motion.div}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            <p
+              className="in animate-in-up m-0 max-w-130 text-xl text-[#b4b7bf] opacity-0 text-pretty"
+              style={{ animationDelay: '.6s' }}
             >
-              <Card
-                sx={{
-                  p: { xs: 2.5, sm: 3.5 },
-                  borderRadius: 4,
-                  bgcolor: 'background.paper',
-                  border: 1,
-                  borderColor: 'divider',
-                }}
+              I'm Nand Kishor Gorain, a BCA graduate from Jharkhand, India. I build native Android apps with Kotlin and
+              Jetpack Compose, and ship full-stack web products with React, Next.js and TypeScript.
+            </p>
+
+            <div className="in animate-in-up flex flex-wrap gap-3.5 opacity-0" style={{ animationDelay: '.75s' }}>
+              <a
+                href="#work"
+                className="cta inline-flex min-h-14 items-center gap-2.5 rounded-full bg-accent px-7.5 text-[17px] font-semibold text-ink"
               >
-                {/* Profile Header */}
-                <Stack direction="row" spacing={2.5} sx={{ pb: 3, borderBottom: 1, borderColor: 'divider', alignItems: 'center' }}>
-                  <Avatar
-                    src='/logo.png'
-                    sx={{
-                      width: 68,
-                      height: 68,
-                      color: 'primary.contrastText',
-                      fontSize: '1.5rem',
-                      fontWeight: 800,
-                      boxShadow: theme.palette.mode === 'dark'
-                        ? '0 0 20px rgba(226, 232, 240, 0.2)'
-                        : '0 4px 16px rgba(15, 23, 42, 0.15)',
-                    }}
-                  >
-                    NK
-                  </Avatar>
-                  <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 800 }}>
-                      Nand Kishor Gorain
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 500 }}>
-                      BCA Graduate (2022–2025)
-                    </Typography>
-                    <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 600 }}>
-                      Binod Bihari Mahto Kolyanchal University
-                    </Typography>
-                  </Box>
-                </Stack>
+                <Roll>View my projects</Roll>
+                <ArrowUpRight />
+              </a>
+              <button
+                type="button"
+                onClick={onOpenResume}
+                className="cta inline-flex min-h-14 cursor-pointer items-center rounded-full border border-[#444850] bg-transparent px-7.5 text-[17px] font-medium text-[#f5f5f2]"
+              >
+                Download resume
+              </button>
+            </div>
+          </div>
 
-                {/* Grid of Key Highlights */}
-                <Grid container spacing={2} sx={{ pt: 3 }}>
-                  {profileData.stats.map((stat, idx) => (
-                    <Grid size={{ xs: 6 }} key={idx}>
-                      <Box
-                        component={motion.div}
-                        whileHover={{ y: -2 }}
-                        sx={{
-                          p: 2,
-                          borderRadius: 2.5,
-                          bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.02)' : 'rgba(15, 23, 42, 0.02)',
-                          border: 1,
-                          borderColor: 'divider',
-                        }}
-                      >
-                        <Typography
-                          variant="h4"
-                          sx={{
-                            fontWeight: 800,
-                            color: 'text.primary',
-                          }}
-                        >
-                          {stat.value}
-                        </Typography>
-                        <Typography variant="subtitle2" sx={{ fontWeight: 700, lineHeight: 1.2, my: 0.25 }}>
-                          {stat.label}
-                        </Typography>
-                        <Typography variant="caption" color="text.secondary">
-                          {stat.sublabel}
-                        </Typography>
-                      </Box>
-                    </Grid>
-                  ))}
-                </Grid>
+          {/* Layered browser mockups */}
+          <div className="stage relative h-140 min-w-0" aria-hidden="true">
+            <div className="absolute top-2.5 -right-15 size-95 rounded-full bg-accent" />
 
-                {/* Quick Terminal Shortcut Callout */}
-                <Box
-                  component={motion.a}
-                  whileHover={{ y: -2 }}
-                  href="#terminal"
-                  sx={{
-                    mt: 3,
-                    p: 1.75,
-                    borderRadius: 2.5,
-                    bgcolor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.02)' : '#000',
-                    color: '#f8fafc',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    textDecoration: 'none',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
-                  }}
-                >
-                  <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center' }}>
-                    <TerminalIcon sx={{ color: '#cbd5e1' }} />
-                    <Box>
-                      <Typography variant="caption" sx={{ color: '#94a3b8', display: 'block', fontFamily: 'monospace' }}>
-                        Interactive CLI
-                      </Typography>
-                      <Typography variant="body2" sx={{ fontFamily: 'monospace', color: '#f8fafc', fontWeight: 600 }}>
-                        $ run nandkishor.sh
-                      </Typography>
-                    </Box>
-                  </Stack>
-                  <Chip
-                    label="Try CLI"
-                    size="small"
-                    sx={{
-                      bgcolor: 'rgba(255, 255, 255, 0.12)',
-                      color: '#f8fafc',
-                      fontWeight: 700,
-                      fontSize: '0.75rem',
-                      fontFamily: 'monospace',
-                    }}
-                  />
-                </Box>
-              </Card>
-            </Box>
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
+            <div className="win win-a win-in animate-win-in absolute top-10 left-0 w-[84%] -rotate-3 overflow-hidden rounded-[18px] border border-line bg-white opacity-0 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.6)]" style={{ animationDelay: '.35s' }}>
+              <div className="flex items-center gap-1.75 border-b border-line bg-paper px-4 py-3">
+                <span className="size-2.5 rounded-full bg-[#d0d3d9]" />
+                <span className="size-2.5 rounded-full bg-[#d0d3d9]" />
+                <span className="size-2.5 rounded-full bg-[#d0d3d9]" />
+                <span className="ml-3 h-5 flex-1 rounded-[10px] bg-[#e6e8ec]" />
+              </div>
+              <div className="flex flex-col gap-4 p-5.5">
+                <div className="flex items-center justify-between">
+                  <span className={`${bar} h-3 w-17.5 bg-ink`} />
+                  <span className="flex gap-2.5">
+                    <span className={`${bar} h-2 w-8.5 bg-[#d0d3d9]`} />
+                    <span className={`${bar} h-2 w-8.5 bg-[#d0d3d9]`} />
+                    <span className={`${bar} h-2 w-8.5 bg-[#d0d3d9]`} />
+                  </span>
+                </div>
+                <div className="flex flex-col gap-2.5 rounded-[14px] bg-ink px-5.5 py-6.5">
+                  <span className={`${bar} h-4.5 w-[72%] bg-[#f5f5f2]`} />
+                  <span className={`${bar} h-4.5 w-[48%] bg-accent`} />
+                  <span className={`${bar} mt-1.5 h-2.5 w-[30%] bg-[#4a4d55]`} />
+                </div>
+                <div className="grid grid-cols-3 gap-3">
+                  <span className="block h-21 rounded-xl bg-[#eceef1]" />
+                  <span className="block h-21 rounded-xl bg-[#eceef1]" />
+                  <span className="block h-21 rounded-xl bg-[#eceef1]" />
+                </div>
+              </div>
+            </div>
+
+            <div className="win win-b win-in animate-win-in absolute right-0 bottom-5 w-[52%] rotate-4 overflow-hidden rounded-[18px] border border-[#33363e] bg-ink-2 opacity-0 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7)]" style={{ animationDelay: '.6s' }}>
+              <div className="flex gap-1.75 border-b border-[#2a2d34] px-3.5 py-2.75">
+                <span className="size-2.25 rounded-full bg-[#3a3d44]" />
+                <span className="size-2.25 rounded-full bg-[#3a3d44]" />
+                <span className="size-2.25 rounded-full bg-[#3a3d44]" />
+              </div>
+              <div className="flex flex-col gap-2.25 p-4 font-mono text-xs text-[#9a9ca3]">
+                <div className="type animate-typing" style={{ '--n': 13, '--w': '13ch', animationDelay: '.9s' } as CSSProperties}>
+                  <span className="text-accent">const</span> <span className="text-[#f5f5f2]">dev</span> = {'{'}
+                </div>
+                <div className="type animate-typing pl-3.5" style={{ '--n': 19, '--w': '19ch', animationDelay: '1.9s' } as CSSProperties}>
+                  role: <span className="text-[#f5f5f2]">'full-stack'</span>,
+                </div>
+                <div className="type animate-typing pl-3.5" style={{ '--n': 11, '--w': '11ch', animationDelay: '2.9s' } as CSSProperties}>
+                  ready: <span className="text-accent">true</span>
+                </div>
+                <div className="type animate-typing" style={{ '--n': 1, '--w': '1ch', animationDelay: '3.7s' } as CSSProperties}>
+                  {'}'}
+                </div>
+              </div>
+            </div>
+
+            <span className="float animate-bob absolute bottom-17.5 -left-1.5 inline-flex items-center gap-2 rounded-full bg-white px-4.5 py-2.5 text-sm font-semibold text-ink shadow-[0_20px_40px_-16px_rgba(0,0,0,0.6)]">
+              <span className="size-2 rounded-full bg-ink" />
+              Kotlin
+            </span>
+            <span className="float2 animate-bob-rev absolute top-0 right-[34%] inline-flex items-center gap-2 rounded-full bg-white px-4.5 py-2.5 text-sm font-semibold text-ink shadow-[0_20px_40px_-16px_rgba(0,0,0,0.6)]">
+              <span className="size-2 rounded-full bg-accent" />
+              Next.js
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
   );
-};
+}
