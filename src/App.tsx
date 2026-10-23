@@ -52,14 +52,14 @@ export default function App() {
 
         {/* Custom cursor */}
         <div
-          className="cur pointer-events-none fixed top-0 left-0 z-[9998] mix-blend-difference transition-[transform,opacity] duration-200"
+          className="cur pointer-events-none fixed top-0 left-0 z-9998 mix-blend-difference transition-[transform,opacity] duration-200"
           aria-hidden="true"
           style={{ opacity: 'var(--co, 0)', transform: 'translate(var(--mx, 0px), var(--my, 0px))' }}
         >
-          <div className="ring -mt-[23px] -ml-[23px] size-[46px] rounded-full border-[1.5px] border-white" />
+          <div className="ring -mt-5.75 -ml-5.75 size-11.5 rounded-full border-[1.5px] border-white" />
         </div>
         <div
-          className="cur pointer-events-none fixed top-0 left-0 z-[9999]"
+          className="cur pointer-events-none fixed top-0 left-0 z-9999"
           aria-hidden="true"
           style={{ opacity: 'var(--co, 0)', transform: 'translate(var(--mx, 0px), var(--my, 0px))' }}
         >
@@ -67,7 +67,7 @@ export default function App() {
         </div>
 
         {/* Scroll progress */}
-        <div aria-hidden="true" className="progress fixed top-0 right-0 left-0 z-[9997] h-[3px] origin-left scale-x-0 bg-accent" />
+        <div aria-hidden="true" className="progress fixed top-0 right-0 left-0 z-9997 h-0.75 origin-left scale-x-0 bg-accent" />
 
         <Navbar />
         <main>
